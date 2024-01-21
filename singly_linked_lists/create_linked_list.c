@@ -20,13 +20,27 @@ void count_nodes(struct node *head) {
         ptr = ptr->link;
 
     }
-    printf("%d", count);
+    // printf("%d", count);
 }
 
+void insert_end(struct node *head, int data){
+    {
+    struct  node *ptr, *temp;
+    ptr = head;
+    temp = (struct node *)malloc(sizeof(struct node));
+    temp->data = data;
+    temp->link = NULL;
+    while (ptr->link != NULL)
+    {
+        ptr = ptr->link;
+    }
+    ptr->link = temp;
+    };
+}
 
 int main() {
     struct node *head = malloc(sizeof(struct node));
-    head->data = 50;
+    head->data = 5;
     head->link = NULL;
     
     // creating the second node
@@ -42,7 +56,11 @@ int main() {
 
     head->link->link = current;
     // Call the count_nodes function to print the count
+    insert_end(head, 687);
     count_nodes(head);
+
+    // printf("%d", head->data);
+
     return 0;
 
 }
